@@ -1,0 +1,143 @@
+
+<ion-row >
+  <ion-col>
+    <ion-item>
+    <ion-label color="primary"> Nombre: </ion-label>
+    <ion-input [(ngModel)]="formulario.nombre"></ion-input>
+    </ion-item>
+  </ion-col>  
+  <ion-col>
+    <ion-item>
+    <ion-label color="primary">Apellidos:</ion-label>
+    <ion-input [(ngModel)]="formulario.apellidos"></ion-input>
+    </ion-item> 
+  </ion-col>
+  <ion-col>
+  <ion-item>
+  <ion-label color="primary">Edad:</ion-label>
+  <ion-input type="number" [(ngModel)]="formulario.edad"></ion-input>
+  </ion-item>
+  </ion-col> 
+</ion-row>
+
+<ion-row *ngIf= "formulario.nombre && formulario.apellidos && formulario.edad">
+<ion-col>
+  <ion-item>
+    <ion-label color="primary"> Te gustan los videojuegos: </ion-label>
+  
+    
+    <ion-select [(ngModel)]="formulario.opcion" placeholder="Select One">
+      <ion-select-option [value]="true">Si</ion-select-option>
+      <ion-select-option [value]="false">no</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-col> 
+</ion-row>
+
+
+
+<ion-row *ngIf="formulario.opcion">
+  <ion-col>
+    <ion-item>
+    <ion-label color="primary"> Selecciona tus generos de videojuegos favoritos: </ion-label>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+<ion-item *ngIf="formulario.opcion" >
+<ion-row>
+  <ion-col size="4">
+    <ion-item>
+    <ion-label color="primary"> Aventura     </ion-label>
+    <ion-checkbox color="success" [(ngModel)]="formulario.seleccion1"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+  <ion-col size="4">
+    <ion-item>
+    <ion-label color="primary"> Disparos     </ion-label>
+    <ion-checkbox color="success" [(ngModel)]="formulario.seleccion2"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Estrategia   </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion3"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Lucha   </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion4"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Survival horror   </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion5"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Plataformas   </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion6"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Rol   </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion7"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Simulación   </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion8"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Deportivo   </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion9"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Carreras   </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion10"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Moba   </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion11"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="4">
+    <ion-item>
+      <ion-label color="primary"> Musicales  </ion-label>
+      <ion-checkbox color="success" [(ngModel)]="formulario.seleccion12"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+</ion-row>
+</ion-item>
+
+<ion-item *ngIf="formulario.opcion">
+  <ion-button color="danger" expand="block" fill="outline" (click)="Borrar()" size ="2">Borrar todo</ion-button>
+  <ion-button *ngIf="formulario.seleccion1||formulario.seleccion2||formulario.seleccion3||formulario.seleccion4||formulario.seleccion5||formulario.seleccion6||formulario.seleccion7||formulario.seleccion8||formulario.seleccion9||formulario.seleccion10||formulario.seleccion11||formulario.seleccion12" color="success" expand="block" fill="outline" (click)="Enviado()" size ="2">Enviar</ion-button>
+  <ion-label *ngIf=formulario.enviado> REGISTRO ENVIADO, MUCHAS GRACIAS!!!!</ion-label>
+</ion-item>
+
+<ion-item *ngIf="!formulario.opcion && formulario.nombre && formulario.apellidos && formulario.edad">
+  <ion-label>Muchas GRACIAS!!!</ion-label>
+</ion-item>
